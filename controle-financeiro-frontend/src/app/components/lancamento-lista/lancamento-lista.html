@@ -1,0 +1,24 @@
+<div class="container">
+  <h3>Meus Lançamentos</h3>
+
+  <p *ngIf="lancamentos.length === 0">Nenhum lançamento cadastrado ainda.</p>
+
+  <table *ngIf="lancamentos.length > 0">
+    <thead>
+      <tr>
+        <th>Descrição</th>
+        <th>Valor</th>
+        <th>Data</th>
+        <th>Tipo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let lancamento of lancamentos">
+        <td>{{ lancamento.descricao }}</td>
+        <td>{{ lancamento.valor | currency:'BRL' }}</td>
+        <td>{{ lancamento.data | date:'dd/MM/yyyy' }}</td>
+        <td>{{ lancamento.tipo }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
