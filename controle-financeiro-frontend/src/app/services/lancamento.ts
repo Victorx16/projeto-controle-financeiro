@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 export enum TipoLancamento {
   RECEITA = 'RECEITA',
@@ -19,16 +20,25 @@ export interface Lancamento {
   providedIn: 'root'
 })
 export class LancamentoService {
-
   private apiUrl = 'http://localhost:8080/api/lancamentos';
 
+  private _lancamentoAtualizado$ = new Subject<void>();
+
   constructor(private http: HttpClient) { }
+
+  get lancamentoAtualizado$() {
+    return this._lancamentoAtualizado$.asObservable();
+  }
 
   listar(): Observable<Lancamento[]> {
     return this.http.get<Lancamento[]>(this.apiUrl);
   }
 
   salvar(lancamento: Lancamento): Observable<Lancamento> {
-    return this.http.post<Lancamento>(this.apiUrl, lancamento);
+    return this.http.post<Lancamento>(this.apiUrl, lancamento).pipe(
+      tap(() => {
+        this._lancamentoAtualizado$.next();
+      })
+    );
   }
 }

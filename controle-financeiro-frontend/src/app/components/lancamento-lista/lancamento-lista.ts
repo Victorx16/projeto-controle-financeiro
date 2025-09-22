@@ -10,15 +10,21 @@ import { Lancamento, LancamentoService } from '../../services/lancamento';
   styleUrl: './lancamento-lista.css'
 })
 export class LancamentoListaComponent implements OnInit {
-
   lancamentos: Lancamento[] = [];
 
   constructor(private lancamentoService: LancamentoService) { }
 
   ngOnInit(): void {
-    this.lancamentoService.listar()
-      .subscribe(dados => {
-        this.lancamentos = dados;
-      });
+    this.carregarLancamentos();
+
+    this.lancamentoService.lancamentoAtualizado$.subscribe(() => {
+      this.carregarLancamentos();
+    });
+  }
+
+  carregarLancamentos(): void {
+    this.lancamentoService.listar().subscribe(dados => {
+      this.lancamentos = dados;
+    });
   }
 }

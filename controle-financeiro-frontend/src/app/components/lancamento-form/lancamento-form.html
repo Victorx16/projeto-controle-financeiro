@@ -1,0 +1,30 @@
+<p>lancamento-form works!</p>
+<div class="form-container">
+  <h3>Novo Lançamento</h3>
+  <form (ngSubmit)="salvar()">
+    <div class="form-group">
+      <label for="descricao">Descrição:</label>
+      <input type="text" id="descricao" name="descricao" [(ngModel)]="novoLancamento.descricao" required>
+    </div>
+
+    <div class="form-group">
+      <label for="valor">Valor:</label>
+      <input type="number" id="valor" name="valor" [(ngModel)]="novoLancamento.valor" required>
+    </div>
+
+    <div class="form-group">
+      <label for="data">Data:</label>
+      <input type="date" id="data" name="data" [(ngModel)]="novoLancamento.data" required>
+    </div>
+
+    <div class="form-group">
+      <label for="tipo">Tipo:</label>
+      <select id="tipo" name="tipo" [(ngModel)]="novoLancamento.tipo" required>
+        <option value="DESPESA">Despesa</option>
+        <option value="RECEITA">Receita</option>
+      </select>
+    </div>
+
+    <button type="submit">Salvar Lançamento</button>
+  </form>
+</div>
