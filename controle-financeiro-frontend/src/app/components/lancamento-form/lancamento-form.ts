@@ -23,7 +23,6 @@ export class LancamentoFormComponent {
   salvar() {
     this.lancamentoService.salvar(this.novoLancamento).subscribe(() => {
       console.log('Lançamento salvo, limpando o formulário...');
-      // Limpa o formulário após o sucesso
       this.novoLancamento = {
         descricao: '',
         valor: 0,

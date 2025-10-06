@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LancamentoEdit } from './lancamento-edit';
+import { LancamentoEditComponent } from './lancamento-edit';
 
 describe('LancamentoEdit', () => {
-  let component: LancamentoEdit;
-  let fixture: ComponentFixture<LancamentoEdit>;
+  let component: LancamentoEditComponent;
+  let fixture: ComponentFixture<LancamentoEditComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LancamentoEdit]
+      imports: [LancamentoEditComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(LancamentoEdit);
+    fixture = TestBed.createComponent(LancamentoEditComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
