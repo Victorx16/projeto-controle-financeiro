@@ -2,7 +2,7 @@
 
 ## 📖 Sobre o Projeto
 
-Este é um projeto acadêmico desenvolvido para a disciplina de *Software Product: Analysis, Specification, Project & Implementation*. Trata-se de uma aplicação web **Full-Stack** para o gerenciamento de finanças pessoais, permitindo ao usuário cadastrar e visualizar suas receitas e despesas de forma simples e intuitiva.
+Este é um projeto acadêmico desenvolvido para a disciplina de *Software Product: Analysis, Specification, Project & Implementation*. Trata-se de uma aplicação web **Full-Stack** para o gerenciamento de finanças pessoais, permitindo ao usuário cadastrar, visualizar e editar suas receitas e despesas de forma simples e intuitiva.
 
 O projeto segue uma arquitetura de 3 camadas e foi desenvolvido utilizando metodologias ágeis, com o gerenciamento de tarefas realizado através de um board Kanban no GitHub.
 
@@ -13,7 +13,7 @@ O projeto segue uma arquitetura de 3 camadas e foi desenvolvido utilizando metod
 A aplicação foi construída com as seguintes tecnologias:
 
 * **Front-end:**
-    * ![Angular](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white) - Framework principal para a construção da interface de usuário reativa (SPA).
+    * ![Angular](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white) - Framework para a construção da interface de usuário reativa (SPA).
     * ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white) - Linguagem utilizada no desenvolvimento do front-end.
 
 * **Back-end:**
@@ -21,24 +21,25 @@ A aplicação foi construída com as seguintes tecnologias:
     * ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white) - Linguagem principal do back-end.
 
 * **Banco de Dados:**
-    * ![Microsoft SQL Server](https://img.shields.io/badge/Microsoft%20SQL%20Server-CC2927?style=for-the-badge&logo=microsoftsqlserver&logoColor=white) - Sistema de gerenciamento para a persistência dos dados.
+    * ![Microsoft SQL Server](https://img.shields.io/badge/Microsoft%20SQL%20Server-CC2927?style=for-the-badge&logo=microsoftsqlserver&logoColor=white) - Sistema para a persistência dos dados.
 
 ---
 
-## ✨ Funcionalidades Implementadas (AC1)
+## ✨ Funcionalidades
 
-A primeira entrega do projeto (AC1) contemplou a implementação da funcionalidade base da aplicação: **Criar e Listar Lançamentos**.
+### Criar e Listar Lançamentos
 
-* **Listagem de Lançamentos:**
-    * A tela principal exibe uma tabela com todos os lançamentos financeiros (receitas e despesas) já cadastrados.
-    * Os dados são buscados dinamicamente da API no momento em que a página é carregada.
+* **Listagem de Lançamentos:** A tela principal exibe uma tabela com todos os lançamentos financeiros.
+* **Cadastro de Novos Lançamentos:** Um formulário permite ao usuário inserir as informações de um novo lançamento (descrição, valor, data e tipo).
+* **Atualização em Tempo Real:** Após o cadastro, a lista na tela é **atualizada automaticamente**, sem a necessidade de recarregar a página, proporcionando uma experiência de usuário fluida.
 
-* **Cadastro de Novos Lançamentos:**
-    * Um formulário permite ao usuário inserir as informações de um novo lançamento: descrição, valor, data e tipo (Receita ou Despesa).
-    * Ao salvar, os dados são enviados para a API e persistidos no banco de dados.
+### Editar um Lançamento
 
-* **Atualização em Tempo Real (Reatividade):**
-    * Após o cadastro de um novo lançamento, a lista na tela é **atualizada automaticamente**, sem a necessidade de recarregar a página (F5), proporcionando uma experiência de usuário fluida e moderna.
+* **Navegação para Edição:** A tabela de lançamentos agora possui um botão "Editar" em cada linha.
+* **Página Dedicada:** Ao clicar em "Editar", o usuário é redirecionado para uma página específica de edição (ex: `/editar/14`), utilizando o sistema de rotas do Angular.
+* **Carregamento de Dados:** A página de edição busca automaticamente os dados do lançamento específico na API e preenche o formulário, permitindo que o usuário veja as informações atuais antes de modificar.
+* **Atualização de Dados:** Após alterar os campos e clicar em "Salvar Alterações", os novos dados são enviados para a API (via método `PUT`), que os atualiza no banco de dados.
+* **Redirecionamento Automático:** Após salvar, o usuário é redirecionado de volta para a página principal, onde a lista de lançamentos já reflete as alterações feitas em tempo real.
 
 ---
 
