@@ -18,6 +18,9 @@
         <td>{{ lancamento.valor | currency:'BRL' }}</td>
         <td>{{ lancamento.data | date:'dd/MM/yyyy' }}</td>
         <td>{{ lancamento.tipo }}</td>
+        <td>
+          <a [routerLink]="['/editar', lancamento.id]" class="btn-editar">Editar</a>
+        </td>
       </tr>
     </tbody>
   </table>

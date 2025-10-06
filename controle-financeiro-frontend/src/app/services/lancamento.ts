@@ -41,4 +41,16 @@ export class LancamentoService {
       })
     );
   }
+
+  buscarPorId(id: number): Observable<Lancamento> {
+    return this.http.get<Lancamento>(`${this.apiUrl}/${id}`)
+  }
+
+  atualizar(lancamento: Lancamento): Observable<Lancamento> {
+    return this.http.put<Lancamento>(`${this.apiUrl}/${lancamento.id}`, lancamento).pipe(
+      tap(() => {
+        this._lancamentoAtualizado$.next();
+      })
+    );
+  }
 }

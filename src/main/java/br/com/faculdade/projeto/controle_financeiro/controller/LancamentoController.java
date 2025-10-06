@@ -32,4 +32,24 @@ public class LancamentoController {
         return repository.save(lancamento);
     }
 
+
+    @GetMapping("/{id}")
+    public Lancamento buscarPorId(@PathVariable("id") Long id){
+        return repository.findById(id).orElse(null);
+    }
+
+    @PutMapping("/{id}")
+    @Transactional
+    public Lancamento atualizar(@PathVariable("id") Long id, @RequestBody Lancamento lancamentoAtualizado){
+        return repository.findById(id)
+                .map(lancamentoExistente -> {
+
+            lancamentoExistente.setDescricao(lancamentoAtualizado.getDescricao());
+            lancamentoExistente.setValor(lancamentoAtualizado.getValor());
+            lancamentoExistente.setData(lancamentoAtualizado.getData());
+            lancamentoExistente.setTipo(lancamentoAtualizado.getTipo());
+
+            return repository.save(lancamentoExistente);
+        }).orElse(null);
+    }
 }

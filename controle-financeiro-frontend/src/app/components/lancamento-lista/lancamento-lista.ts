@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Lancamento, LancamentoService } from '../../services/lancamento';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-lancamento-lista',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './lancamento-lista.html',
   styleUrl: './lancamento-lista.css'
 })

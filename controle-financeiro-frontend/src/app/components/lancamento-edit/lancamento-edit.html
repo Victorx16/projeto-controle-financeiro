@@ -1,0 +1,31 @@
+<div *ngIf="lancamento" class="form-container">
+  <h3>Editando Lançamento: {{ lancamento.descricao }}</h3>
+
+  <form (ngSubmit)="salvarEdicao()">
+    <div class="form-group">
+      <label for="descricao">Descrição:</label>
+      <input type="text" id="descricao" name="descricao" [(ngModel)]="lancamento.descricao" required>
+    </div>
+
+    <div class="form-group">
+      <label for="valor">Valor:</label>
+      <input type="number" id="valor" name="valor" [(ngModel)]="lancamento.valor" required>
+    </div>
+
+    <div class="form-group">
+      <label for="data">Data:</label>
+      <input type="date" id="data" name="data" [(ngModel)]="lancamento.data" required>
+    </div>
+
+    <div class="form-group">
+      <label for="tipo">Tipo:</label>
+      <select id="tipo" name="tipo" [(ngModel)]="lancamento.tipo" required>
+        <option value="DESPESA">Despesa</option>
+        <option value="RECEITA">Receita</option>
+      </select>
+    </div>
+
+    <button type="submit">Salvar Alterações</button>
+    <button type="button" (click)="cancelar()">Cancelar</button>
+  </form>
+</div>
