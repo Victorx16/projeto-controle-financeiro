@@ -20,6 +20,8 @@
         <td>{{ lancamento.tipo }}</td>
         <td>
           <a [routerLink]="['/editar', lancamento.id]" class="btn-editar">Editar</a>
+
+          <button (click)="excluir(lancamento.id!)" class="btn-excluir">Excluir</button>
         </td>
       </tr>
     </tbody>

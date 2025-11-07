@@ -6,12 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 
 
 @RestController
 @RequestMapping("/api/lancamentos")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4200", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 
 
 public class LancamentoController {
@@ -51,5 +52,12 @@ public class LancamentoController {
 
             return repository.save(lancamentoExistente);
         }).orElse(null);
+    }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public void excluir(@PathVariable("id") Long id) {
+
+        repository.deleteById(id);
     }
 }

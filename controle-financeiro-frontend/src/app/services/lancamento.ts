@@ -53,4 +53,13 @@ export class LancamentoService {
       })
     );
   }
+
+  excluir(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`).pipe(
+      tap(() => {
+        
+        this._lancamentoAtualizado$.next();
+      })
+    );
+  }
 }
