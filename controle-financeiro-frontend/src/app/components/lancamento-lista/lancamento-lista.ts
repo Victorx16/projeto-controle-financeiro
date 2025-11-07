@@ -33,12 +33,9 @@ export class LancamentoListaComponent implements OnInit {
 
     if (confirm('Tem certeza que deseja excluir este lançamento?')) {
       this.lancamentoService.excluir(id).subscribe({
-        // Função de Sucesso
         next: () => {
           console.log('Lançamento excluído com sucesso!');
-          // A lista vai se atualizar sozinha por causa do Subject no serviço
         },
-        // FUNÇÃO DE ERRO
         error: (erro) => {
           console.error('ERRO AO TENTAR EXCLUIR:', erro);
           alert('Não foi possível excluir o lançamento. Verifique o console para mais detalhes.');
