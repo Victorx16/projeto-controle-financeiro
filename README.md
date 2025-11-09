@@ -2,7 +2,7 @@
 
 ## 📖 Sobre o Projeto
 
-Este é um projeto acadêmico desenvolvido para a disciplina de *Software Product: Analysis, Specification, Project & Implementation*. Trata-se de uma aplicação web **Full-Stack** para o gerenciamento de finanças pessoais, permitindo ao usuário cadastrar, visualizar e editar suas receitas e despesas de forma simples e intuitiva.
+Este é um projeto acadêmico desenvolvido para a disciplina de *Software Product: Analysis, Specification, Project & Implementation*. Trata-se de uma aplicação web **Full-Stack** para o gerenciamento de finanças pessoais, permitindo ao usuário cadastrar, visualizar, editar, excluir e **analisar um resumo** de suas receitas e despesas.
 
 O projeto segue uma arquitetura de 3 camadas e foi desenvolvido utilizando metodologias ágeis, com o gerenciamento de tarefas realizado através de um board Kanban no GitHub.
 
@@ -13,7 +13,7 @@ O projeto segue uma arquitetura de 3 camadas e foi desenvolvido utilizando metod
 A aplicação foi construída com as seguintes tecnologias:
 
 * **Front-end:**
-    * ![Angular](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white) - Framework para a construção da interface de usuário reativa (SPA).
+    * ![Angular](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white) - Framework principal para a construção da interface de usuário reativa (SPA).
     * ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white) - Linguagem utilizada no desenvolvimento do front-end.
 
 * **Back-end:**
@@ -40,6 +40,9 @@ A aplicação foi construída com as seguintes tecnologias:
 * **Carregamento de Dados:** A página de edição busca automaticamente os dados do lançamento específico na API e preenche o formulário, permitindo que o usuário veja as informações atuais antes de modificar.
 * **Atualização de Dados:** Após alterar os campos e clicar em "Salvar Alterações", os novos dados são enviados para a API (via método `PUT`), que os atualiza no banco de dados.
 * **Redirecionamento Automático:** Após salvar, o usuário é redirecionado de volta para a página principal, onde a lista de lançamentos já reflete as alterações feitas em tempo real.
+
+### Excluir um Lançamento
+* **Descrição:** Implementação da exclusão de itens (via `DELETE`), com uma caixa de diálogo de confirmação e atualização instantânea da lista.
 
 ---
 
